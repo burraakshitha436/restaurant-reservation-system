@@ -14,11 +14,23 @@ function Login() {
         password,
       });
 
+      // Debug
+      console.log("Response:", res.data);
+      console.log("User:", res.data.user);
+      console.log("Role:", res.data.user.role);
+
+      // Save login data
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+
       alert("Login Successful!");
+
+      // Reload the app so App.jsx reads the logged-in user
+      window.location.href ="/";
+
     } catch (error) {
-      alert("Login Failed!");
       console.log(error);
+      alert("Login Failed!");
     }
   };
 
@@ -32,18 +44,22 @@ function Login() {
           placeholder="Enter Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
 
-        <br /><br />
+        <br />
+        <br />
 
         <input
           type="password"
           placeholder="Enter Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
 
-        <br /><br />
+        <br />
+        <br />
 
         <button type="submit">Login</button>
       </form>

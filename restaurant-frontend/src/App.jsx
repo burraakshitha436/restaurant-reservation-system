@@ -8,10 +8,6 @@ function App() {
 
   return (
     <div className="container">
-        <h1 style={{ textAlign: "center", color: "#0077cc" }}>
-  Restaurant Reservation System
-</h1>
-
 
       <div className="navbar">
         <button onClick={() => setPage("booking")}>
